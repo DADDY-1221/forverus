@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="theme-color" content="#1a0a10">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Her Special Day</title>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Fredoka:wght@500;700&family=Playfair+Display:wght@500;700&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="stars" aria-hidden="true"></canvas>
+<canvas id="fx" aria-hidden="true"></canvas>
+<main>
+  <section class="scene" id="start">
+    <p class="eyebrow">Made with love, just for you</p>
+    <h1 id="cdTitle">Your Special Day<br>is Coming</h1>
+    <p class="note" id="bornLine"></p>
+    <div class="cd" aria-live="off">
+      <div><b id="cdD">00</b><span>days</span></div>
+      <div><b id="cdH">00</b><span>hours</span></div>
+      <div><b id="cdM">00</b><span>minutes</span></div>
+      <div><b id="cdS">00</b><span>seconds</span></div>
+    </div>
+    <p class="scribble">psst… I built this myself ♥</p>
+    <button class="btn" id="go">Open the gift 🎁</button>
+  </section>
+
+  <section class="scene" id="giftScene" hidden>
+    <p class="scribble">Go on… open it. I promise it’s good.</p>
+    <button class="giftbox" id="giftbox" aria-label="Open the gift">
+      <svg viewBox="0 0 200 210" aria-hidden="true">
+        <defs><radialGradient id="burstG"><stop offset="0" stop-color="#fff3c4" stop-opacity=".95"/><stop offset="1" stop-color="#ffc48a" stop-opacity="0"/></radialGradient></defs>
+        <circle class="burst" cx="100" cy="80" r="95" fill="url(#burstG)"/>
+        <rect x="30" y="100" width="140" height="95" rx="8" fill="#b3263e"/>
+        <rect x="92" y="100" width="16" height="95" fill="#ffd27a"/>
+        <g class="lid"><rect x="22" y="72" width="156" height="34" rx="8" fill="#d4445a"/><rect x="92" y="72" width="16" height="34" fill="#ffd27a"/><path d="M100 72 C70 40 40 62 100 72 C160 62 130 40 100 72Z" fill="#ffd27a"/></g>
+      </svg>
+    </button>
+  </section>
+
+  <section class="scene" id="rainScene" hidden>
+    <canvas id="rain" aria-hidden="true"></canvas>
+    <div class="rainText" id="rainText" aria-live="polite"></div>
+  </section>
+
+  <section class="scene" id="cakeScene" hidden>
+    <svg class="bunting" viewBox="0 0 400 74" aria-hidden="true"><path d="M0 8 Q200 56 400 8" fill="none" stroke="#e8c9a0" stroke-width="2"/><g id="flags"></g></svg>
+    <h2 id="sub"></h2>
+    <div class="stage">
+      <div class="ambient" id="ambient"></div>
+      <svg viewBox="0 40 400 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A birthday cake with candles">
+      <defs>
+        <linearGradient id="sponge" x1="0" x2="1"><stop offset="0" stop-color="#b97a3e"/><stop offset=".3" stop-color="#e8b87a"/><stop offset=".55" stop-color="#f6d6a2"/><stop offset=".8" stop-color="#dba264"/><stop offset="1" stop-color="#a86a32"/></linearGradient>
+        <linearGradient id="shade" x1="0" x2="1"><stop offset="0" stop-color="#000" stop-opacity=".3"/><stop offset=".25" stop-color="#000" stop-opacity="0"/><stop offset=".7" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".35"/></linearGradient>
+        <linearGradient id="frost" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fffaf0"/><stop offset="1" stop-color="#ffd9b8"/></linearGradient>
+        <radialGradient id="top" cx=".5" cy=".4" r=".7"><stop offset="0" stop-color="#fffdf7"/><stop offset="1" stop-color="#ffd9b0"/></radialGradient>
+        <linearGradient id="plate" x1="0" x2="1"><stop offset="0" stop-color="#9a93b5"/><stop offset=".5" stop-color="#f2eefc"/><stop offset="1" stop-color="#8d86a8"/></linearGradient>
+        <radialGradient id="flameG" cx=".5" cy=".75" r=".65"><stop offset="0" stop-color="#fffbe0"/><stop offset=".45" stop-color="#ffd84d"/><stop offset="1" stop-color="#ff7a1a"/></radialGradient>
+        <radialGradient id="glowG"><stop offset="0" stop-color="#ffcf6b" stop-opacity=".8"/><stop offset="1" stop-color="#ff9a3c" stop-opacity="0"/></radialGradient>
+        <pattern id="stripe" width="12" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(35)"><rect width="12" height="12" fill="#fff"/><rect width="6" height="12" fill="#ff7f61"/></pattern>
+        <pattern id="stripe2" width="12" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(35)"><rect width="12" height="12" fill="#fff"/><rect width="6" height="12" fill="#ffcf6b"/></pattern>
+        <linearGradient id="cyl" x1="0" x2="1"><stop offset="0" stop-color="#000" stop-opacity=".3"/><stop offset=".4" stop-color="#fff" stop-opacity=".25"/><stop offset="1" stop-color="#000" stop-opacity=".3"/></linearGradient>
+      </defs>
+      <ellipse cx="200" cy="312" rx="188" ry="36" fill="#000" opacity=".25"/>
+      <ellipse cx="200" cy="306" rx="182" ry="34" fill="url(#plate)"/>
+      <path id="body" d="M60 190 L60 300 A140 28 0 0 0 340 300 L340 190 Z" fill="url(#sponge)"/>
+      <path d="M60 236 A140 28 0 0 0 340 236 L340 252 A140 28 0 0 1 60 252 Z" fill="#fff3df"/>
+      <path d="M60 190 L60 300 A140 28 0 0 0 340 300 L340 190 Z" fill="url(#shade)"/>
+      <ellipse cx="200" cy="190" rx="140" ry="28" fill="url(#top)"/>
+      <path d="M60 190 A140 28 0 0 0 340 190 L340 202 A140 28 0 0 1 60 202 Z" fill="url(#frost)"/>
+      <g id="drips"></g>
+      <g id="candles"></g>
+      <g id="berries"></g>
+    </svg>
+    </div>
+    <p class="hint" id="hint" aria-live="polite"></p>
+    <div class="row">
+      <button class="btn" id="mic">Blow into your mic</button>
+      <button class="btn alt" id="song" hidden>Play the song</button>
+      <button class="btn alt" id="again" hidden>Light them again</button>
+    </div>
+    <button class="gift" id="gift" hidden aria-label="Open your gift"><b>♥</b><small>Tap to open</small></button>
+  </section>
+
+  <section class="scene" id="cardsScene" hidden>
+    <div id="cardsBox" class="rise">
+      <div class="mcard" id="cardText"></div>
+      <figure class="photo"><div class="ph"><img id="cardImg" alt=""></div></figure>
+    </div>
+    <button class="btn" id="next">Next ♥</button>
+  </section>
+
+  <section class="scene" id="zodiacScene" hidden>
+    <p class="eyebrow">Written in the stars</p>
+    <div class="zcard rise">
+      <div class="zsym" id="zSym"></div>
+      <h2 id="zName"></h2>
+      <p class="note" id="zEl"></p>
+      <p id="zTrait"></p>
+      <dl class="facts">
+        <div><dt>Day</dt><dd id="fDay"></dd></div>
+        <div><dt>Month</dt><dd id="fMonth"></dd></div>
+        <div><dt>Year</dt><dd id="fYear"></dd></div>
+        <div><dt id="fHourLbl">Hour</dt><dd id="fHour"></dd></div>
+      </dl>
+    </div>
+    <button class="btn" id="toHeart">One last thing ♥</button>
+  </section>
+
+  <section class="scene" id="heartScene" hidden>
+    <div class="heart" id="heart"></div>
+    <h2 id="endTitle"></h2>
+    <p class="note" id="endFrom"></p>
+    <button class="btn alt" id="replay">Watch it again</button>
+  </section>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
